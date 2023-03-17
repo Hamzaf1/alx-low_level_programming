@@ -1,2 +1,11 @@
 #!/bin/bash
-gcc -S -masm=intel $CFILE
+
+# Get the name of the C file
+CFILE=$1
+
+# Get the name of the output file
+OUTPUT="${CFILE%.*}.s"
+
+# Compile the C code to assembly
+gcc -S -masm=intel $CFILE -o $OUTPUT
+
